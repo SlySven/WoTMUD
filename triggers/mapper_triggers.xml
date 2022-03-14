@@ -179,12 +179,10 @@ if wotmudmapper:is_movement(mapCommand) and (not table.is_empty(lastID)) then
     --else, you're just moving around in non-mapping mode or with multiple potential rooms
   else
     for k, v in pairs(lastID) do
-      local rooms =
-        wotmudmapper:is_near_room(mapCommand, wotmudmapper.roomname, wotmudmapper.roomdesc, getRoomExits(v))
-      if not table.contains(newID, rooms[1]) then
-        table.insert(newID, rooms[1])
-      end
+      local rooms = wotmudmapper:is_near_room(mapCommand, wotmudmapper.roomname, wotmudmapper.roomdesc, getRoomExits(v))
+      table.insert(newID, rooms[1])
     end
+    newID = table.n_union(newID, newID)
     if table.is_empty(newID) then
       newID = wotmudmapper:find_room(wotmudmapper.roomname, wotmudmapper.roomdesc, wotmudmapper.roomexits)
     elseif
@@ -203,11 +201,10 @@ elseif wotmudmapper:is_flee(mapCommand) and (not table.is_empty(lastID)) then
         wotmudmapper.roomname, wotmudmapper.roomdesc, wotmudmapper.roomexits, getRoomExits(v)
       )
     for kk, vv in pairs(rooms) do
-      if not table.contains(newID, vv) then
-        table.insert(newID, vv)
-      end
+      table.insert(newID, vv)
     end
   end
+  newID = table.n_union(newID, newID)
   if table.is_empty(newID) then
     newID = wotmudmapper:find_room(wotmudmapper.roomname, wotmudmapper.roomdesc, wotmudmapper.roomexits)
   elseif
@@ -242,10 +239,9 @@ else
   local unsafe_rooms = table.n_complement(wotmudmapper.roomexits, safe_rooms)
   if getExitStubs(wotmudmapper.currentID[1]) then
     for k, v in pairs(getExitStubs(wotmudmapper.currentID[1])) do
-      if not table.contains(unsafe_rooms,string.sub(wotmudmapper.exitmap[v],1,1)) then
-        table.insert(unsafe_rooms,string.sub(wotmudmapper.exitmap[v],1,1))
-      end
+      table.insert(unsafe_rooms,string.sub(wotmudmapper.exitmap[v],1,1))
     end
+    unsafe_rooms = table.n_union(unsafe_rooms, unsafe_rooms)
   end
   for k,v in pairs(unsafe_rooms) do
       wotmudmapper:echo(
@@ -371,10 +367,9 @@ else
   local unsafe_rooms = table.n_complement(wotmudmapper.roomexits, safe_rooms)
   if getExitStubs(wotmudmapper.currentID[1]) then
     for k, v in pairs(getExitStubs(wotmudmapper.currentID[1])) do
-      if not table.contains(unsafe_rooms,string.sub(wotmudmapper.exitmap[v],1,1)) then
-        table.insert(unsafe_rooms,string.sub(wotmudmapper.exitmap[v],1,1))
-      end
+      table.insert(unsafe_rooms,string.sub(wotmudmapper.exitmap[v],1,1))
     end
+    unsafe_rooms = table.n_union(unsafe_rooms, unsafe_rooms)
   end
   for k,v in pairs(unsafe_rooms) do
       wotmudmapper:echo(
