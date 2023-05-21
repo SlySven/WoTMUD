@@ -840,9 +840,11 @@ table.save(getMudletHomeDir() .. "/wotmudmapper.configs.lua", wotmudmapper.confi
 
 if wotmudmapper.configs.on then
   enableTrigger("Mapper")
+  enableAlias("Doors with directions")
   wotmudmapper.queue = List:new()
 else
   disableTrigger("Mapper")
+  disableAlias("Doors with directions")
 end</script>
 					<command></command>
 					<packageName></packageName>
