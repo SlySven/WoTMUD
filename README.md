@@ -135,21 +135,16 @@ The appearance of the map can be further changed with some tabs in the settings 
 
 # Some suggested settings
 
-<details>
-<summary>Click to expand.</summary>
-
 If you want to use Mudlet with a dark theme, you can find that option in Settings -> General
 ![settings_dark_mode](https://user-images.githubusercontent.com/52049495/152900723-78e0348d-5b3b-4643-83e9-3266af5833ba.png)
 
 There is another setting that most WoTMUD players would highly recommend adjusting in Mudlet. It is the additional text wait time option, found in Settings -> Special Options. This setting controls how long Mudlet waits to display text *if it has not received further output from the mud server*. This is most noticeable as a slight delay in the display of the prompt line, if no other mud output is arriving. The default value of 0.300 seconds can be adjusted (3) to make Mudlet wait less time and feel a bit "snappier". The ideal value will depend on your link, but many people have had luck with the 0.010 - 0.050 seconds range. 
 Additionally, there is a setting in the special options to not show debug messages for timers smaller than a certain limit (to avoid the potential of spamming the debug output). Personally, I don't display debug info for any timers smaller than 1 second (4), though you may choose a different value if desired.
 ![settings_special_options](https://user-images.githubusercontent.com/52049495/152901054-53b50f61-d9c9-4f97-994a-a3fb132c0961.png)
-   
-</details>
 
 # Installing other files
 
-You can type "wotpack view files" to get a list of all possible files available for download. This list is NOT displayed very neatly, hopefully I can change that in the future. You can click on individual files to download and install them, although be careful - installing an individual file that requires other files to function properly may cause issues. You can use commands from the "wotpack help" help message to install particular files, groupings that contain multiple files (e.g. the mapper or comms window), or everything in this repository. Most names should be self explanatory.
+You can type "wotpack view files" to get a list of all possible files available for download. This should display columns for scripts, triggers, aliases, etc., along with files associated with them. You can click on individual files to download and install the package they are associated with. You can also use commands from the "wotpack help" help message to install particular packages, or everything in this repository. Most names should be self explanatory.
 
 As an example, and an introduction to editing my files in Mudlet (which people have found helpful as a stepping stone to creating their own material), expand the section below to see how to install and edit my targeting aliases.
 
@@ -158,16 +153,16 @@ As an example, and an introduction to editing my files in Mudlet (which people h
 <summary>Click to expand.</summary>
 
 Type "wotpack view files" and click on the "targeting" item in the aliases section to download and install them, or type "wotpack install targeting" to install my set of targeting aliases.
-![targeting_install_1](https://user-images.githubusercontent.com/52049495/138775890-bc167ef1-b05a-49c7-9b59-499fc3d24ccb.png)
-![targeting_install_2](https://user-images.githubusercontent.com/52049495/138775903-1b9fd3a9-488f-4f02-b9bf-df8cde8fe27a.png)
-Type "tgt xxx" to set a target. Some specific targets give messages colored by their race on the MUD.
+![targeting_install_1](https://user-images.githubusercontent.com/52049495/219877586-c4b55ebe-2f44-4504-8339-ddf2e8a1cd40.png)
+![targeting_install_2](https://user-images.githubusercontent.com/52049495/219877589-d8d573fe-9d94-44f2-85a8-90e4a82733e8.png)
+You can type "t1 xxx" "t2 xxx" "t3 xxx" etc. to set a variety of targets. Some specific targets give messages colored by their race on the MUD. You then have to type "t1" or "t2" or "t3" or etc. to actually select one of those as your current target. "p" is my default alias to "kill target", "o" to "kill h.target", and "q" will do a special on the target. "pkmode" will swap that special between bashing/charging/stabbing/weaving/none. "tgts" will display a list of targets saved, as well as what your current target is set to and what pkmode is in use.
    
-"p" is my default alias to "kill target". This can be easily changed. Open up Aliases in Mudlet from the top toolbar, and navigate to the targeting aliases. Expand any subfolders and find the alias to "Attack target". You will see a box named "Pattern:" with "^p$" inside of it. This is a regex pattern that Mudlet matches to either a) send a replacement command to the MUD (as specified in the "Command:" box underneath), or b) execute a sequence of Lua code as specified in the large white space underneath. Regex and Lua are outside the scope of anything I want to cover here currently, but to change the key that you use to "kill target" simply change the "p" to a different letter in the "Pattern:" box. Do NOT, however, get rid of the ^ or $ symbol. Keep them, as they are necessary for Mudlet to match things properly - just change the letter in between to the letter(s) that you would prefer to use.
-![targeting_install_3](https://user-images.githubusercontent.com/52049495/138776848-b9761c82-7010-4051-81ec-d0bf204ccfc6.png) 
+These aliases can be easily changed. Open up Aliases in Mudlet from the top toolbar, and navigate to the targeting aliases. Expand any subfolders and, for this example, find the alias to "Attack target". You will see a box named "Pattern:" with "^p$" inside of it. This is a regex pattern that Mudlet matches to either a) send a replacement command to the MUD (as specified in the "Command:" box underneath), or b) execute a sequence of Lua code as specified in the large white space underneath. Regex and Lua are outside the scope of anything I want to cover here currently, but to change the key that you use to "kill target" simply change the "p" to a different letter in the "Pattern:" box. Do NOT, however, get rid of the ^ or $ symbol. Keep them, as they are necessary for Mudlet to match things properly - just change the letter in between to the letter(s) that you would prefer to use.
+![targeting_install_3](https://user-images.githubusercontent.com/52049495/219877812-6030ef4a-61be-4fd3-bf9c-61f1e513067f.png)
    
 </details>
 
-Two sets of scripts that you might also consider installing are a daily reminder to vote for the WoTMUD at http://www.topmudsites.com/vote-wotmud.html, and a query for the player numbers from https://writtenrealms.com/wot/playground/who/daily that adds the numbers to the "who" list in the game. The writtenrealms site also has other resources for the MUD, such as combat skill chance calculators. Further details can be found on the game's help forum.
+One other script that you might also consider installing is a query for the player numbers from https://writtenrealms.com/wot/playground/who/daily that adds the numbers to the "who" list in the game. The writtenrealms site also has other resources for the MUD, such as combat skill chance calculators. Further details can be found on the game's help forum.
 
 # Other Mudlet information - profile saves and logs
 <details>
